@@ -23,21 +23,21 @@ const TradingPanel = () => {
   };
 
   return (
-    <div className="bg-slate-800 p-4 rounded-lg">
+    <div className="bg-gray-800 p-4 rounded-lg">
       <div className="grid grid-cols-2 gap-4">
         <div>
           <div className="flex space-x-2 mb-4">
             <button
-              className={`px-4 py-2 rounded ${
-                orderType === "LIMIT" ? "bg-blue-600" : "bg-slate-700"
+              className={`px-4 py-2 cursor-pointer rounded ${
+                orderType === "LIMIT" ? "bg-blue-600" : "bg-gray-700"
               }`}
               onClick={() => setOrderType("LIMIT")}
             >
               Limit
             </button>
             <button
-              className={`px-4 py-2 rounded ${
-                orderType === "MARKET" ? "bg-blue-600" : "bg-slate-700"
+              className={`px-4 cursor-pointer py-2 rounded ${
+                orderType === "MARKET" ? "bg-blue-600" : "bg-gray-700"
               }`}
               onClick={() => setOrderType("MARKET")}
             >
@@ -46,16 +46,16 @@ const TradingPanel = () => {
           </div>
           <div className="flex space-x-2 mb-4">
             <button
-              className={`w-1/2 py-2 rounded ${
-                side === "BUY" ? "bg-green-600" : "bg-slate-700"
+              className={`w-1/2 cursor-pointer py-2 rounded ${
+                side === "BUY" ? "bg-green-600" : "bg-gray-700"
               }`}
               onClick={() => setSide("BUY")}
             >
               Buy
             </button>
             <button
-              className={`w-1/2 py-2 rounded ${
-                side === "SELL" ? "bg-red-600" : "bg-slate-700"
+              className={`w-1/2 cursor-pointer py-2 rounded ${
+                side === "SELL" ? "bg-red-600" : "bg-gray-700"
               }`}
               onClick={() => setSide("SELL")}
             >

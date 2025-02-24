@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useWebSocket } from "../../hooks/useWebSocket";
+import { fetchTradeHistory } from "../../services/api";
 import TradeRow from "./TradeRow";
 
 const TradeHistory = () => {
   const [trades, setTrades] = useState([]);
-  const { lastMessage } = useWebSocket("ws://localhost:5000/trades");
+  const { lastMessage } = useWebSocket("ws://localhost:5000");
+
+  useEffect(() => {
+    const loadTradeHistory = async () => {
+      const data = await fetchTradeHistory();
+      setTrades(data.reverse()); // Reverse the order to display the most recent trades first
+    };
+
+    loadTradeHistory();
+  }, []);
 
   useEffect(() => {
     if (lastMessage?.type === "trade") {
+      // Add the latest trade at the top and limit the list to the latest 50 trades
       setTrades((prevTrades) => [lastMessage.data, ...prevTrades].slice(0, 50));
     }
   }, [lastMessage]);

@@ -75,13 +75,13 @@ const ChartSettings = ({ onClose, onApply }) => {
         <div className="flex justify-end space-x-2 mt-6">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-700 rounded hover:bg-slate-600"
+            className="px-4 py-2 cursor-pointer bg-slate-700 rounded hover:bg-slate-600"
           >
             Cancel
           </button>
           <button
             onClick={handleApply}
-            className="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+            className="px-4 py-2 cursor-pointer bg-blue-600 rounded hover:bg-blue-700"
           >
             Apply
           </button>

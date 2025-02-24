@@ -6,20 +6,24 @@ import TradingPanel from "./components/TradingPanel/TradingPanel";
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
-      <div className="container mx-auto p-4">
-        <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-8">
-            <TradingViewChart />
+    <div className="min-h-screen bg-sky-950 text-white">
+      <div className="flex flex-col lg:flex-row container mx-auto p-6 gap-6">
+        <div className="flex flex-col lg:flex-row lg:w-full gap-6">
+          <div className="flex flex-col lg:w-2/3 gap-6">
+            <div className="flex-1">
+              <TradingViewChart />
+            </div>
+            <div className="flex-1">
+              <OrderBook />
+            </div>
           </div>
-          <div className="col-span-4">
-            <OrderBook />
-          </div>
-          <div className="col-span-8">
-            <TradingPanel />
-          </div>
-          <div className="col-span-4">
-            <TradeHistory />
+          <div className="flex flex-col lg:w-1/3 gap-6">
+            <div className="flex-1">
+              <TradingPanel />
+            </div>
+            <div className="flex-1">
+              <TradeHistory />
+            </div>
           </div>
         </div>
       </div>

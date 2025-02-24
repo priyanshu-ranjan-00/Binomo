@@ -22,6 +22,10 @@ export const useWebSocket = (url) => {
       setLastMessage(data);
     };
 
+    websocket.onerror = (error) => {
+      console.error("WebSocket Error:", error);
+    };
+
     setWs(websocket);
   }, [url]);
 

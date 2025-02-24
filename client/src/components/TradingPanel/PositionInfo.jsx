@@ -3,7 +3,7 @@ import React from "react";
 const PositionInfo = () => {
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-medium">Position Information</h3>
+      <h3 className="text-lg font-medium">More Info</h3>
       <div className="grid grid-cols-2 gap-2 text-sm">
         <div className="bg-slate-700 p-3 rounded">
           <div className="text-slate-400">Position Size</div>

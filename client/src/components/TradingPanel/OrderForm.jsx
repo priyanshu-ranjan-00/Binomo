@@ -1,18 +1,29 @@
 import React, { useState } from "react";
+import { placeOrder, createTrade } from "../../services/api";
 
-const OrderForm = ({ orderType, side, onSubmit }) => {
+const OrderForm = ({ orderType, side }) => {
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit({
+    const order = {
       type: orderType,
-      side,
-      price: orderType === "LIMIT" ? parseFloat(price) : null,
+      price: parseFloat(price),
       quantity: parseFloat(quantity),
-      symbol: "BTCUSDT",
-    });
+      side: side,
+    };
+    const placedOrder = await placeOrder(order);
+
+    // Create a trade based on the placed order
+    const trade = {
+      orderId: placedOrder._id,
+      price: placedOrder.price,
+      quantity: placedOrder.quantity,
+    };
+    await createTrade(trade);
+
+    // Optionally, you can add code to update the order book or show a success message
   };
 
   return (
@@ -43,7 +54,7 @@ const OrderForm = ({ orderType, side, onSubmit }) => {
       </div>
       <button
         type="submit"
-        className={`w-full py-3 rounded font-medium ${
+        className={`w-full py-3 rounded font-medium cursor-pointer ${
           side === "BUY"
             ? "bg-green-600 hover:bg-green-700"
             : "bg-red-600 hover:bg-red-700"

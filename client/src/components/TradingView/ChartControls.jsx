@@ -17,12 +17,12 @@ const ChartControls = ({ onIntervalChange, onIndicatorAdd }) => {
           </button>
         ))}
       </div>
-      <div className="flex space-x-2">
+      <div className="flex cursor-pointer space-x-2">
         {indicators.map((indicator) => (
           <button
             key={indicator}
             onClick={() => onIndicatorAdd(indicator)}
-            className="px-3 py-1 bg-slate-700 rounded hover:bg-slate-600"
+            className="px-3 py-1 cursor-pointer bg-slate-700 rounded hover:bg-slate-600"
           >
             {indicator}
           </button>
